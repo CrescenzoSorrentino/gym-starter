@@ -9,8 +9,8 @@ const c = useRuntimeConfig().public
       <h1>{{ c.heroTitle }} <em>{{ c.heroTitleAccent }}</em></h1>
       <p>{{ c.heroSubtitle }}</p>
       <div class="hero-cta">
-        <BaseButton>{{ c.heroCta1 }}</BaseButton>
-        <BaseButton variant="secondary">{{ c.heroCta2 }}</BaseButton>
+        <BaseButton to="/contatti">{{ c.heroCta1 }}</BaseButton>
+        <BaseButton variant="secondary" to="/chi-siamo">{{ c.heroCta2 }}</BaseButton>
       </div>
     </div>
   </section>
@@ -80,8 +80,24 @@ const c = useRuntimeConfig().public
 /* CTA */
 .hero-cta {
   display: flex;
+  flex-direction: column;
   gap: var(--space-4);
-  flex-wrap: wrap;
+  max-width: 500px;
+}
+
+.hero-cta :deep(.btn) {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .hero-cta {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .hero-cta :deep(.btn) {
+    width: auto;
+  }
 }
 
 @media (min-width: 768px) {

@@ -6,7 +6,7 @@ const c = useRuntimeConfig().public
   <section class="cta">
     <div class="cta-content">
       <h2>{{ c.ctaTitle }}</h2>
-      <BaseButton variant="ghost">{{ c.ctaButton }}</BaseButton>
+      <BaseButton variant="ghost" to="/contatti">{{ c.ctaButton }}</BaseButton>
     </div>
   </section>
 </template>

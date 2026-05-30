@@ -10,6 +10,6 @@
 
 <style scoped>
 .layout {
-  padding-top: 4rem;
+  padding-top: var(--space-16);
 }
 </style>

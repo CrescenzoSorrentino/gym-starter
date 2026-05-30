@@ -87,12 +87,17 @@ const team = [
   aspect-ratio: 1;
   object-fit: cover;
   object-position: top;
-  filter: grayscale(100%);
-  transition: filter var(--transition-normal);
 }
 
-.team-photo img:hover {
-  filter: grayscale(0%);
+@media (min-width: 768px) {
+  .team-photo img {
+    filter: grayscale(100%);
+    transition: filter var(--transition-normal);
+  }
+
+  .team-photo img:hover {
+    filter: grayscale(0%);
+  }
 }
 
 .team-card h3 {

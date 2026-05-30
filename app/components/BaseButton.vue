@@ -1,22 +1,30 @@
 <script setup lang="ts">
-defineProps<{
-  variant?: 'primary' | 'secondary' | 'ghost';
+const props = defineProps<{
+  variant?: 'primary' | 'secondary' | 'ghost'
+  to?: string
 }>()
+
+const classes = computed(() => ['btn', `btn--${props.variant ?? 'primary'}`])
 </script>
 
 <template>
-  <button :class="['btn', `btn--${variant ?? 'primary'}`]">
+  <NuxtLink v-if="to" :to="to" :class="classes">
+    <slot />
+  </NuxtLink>
+  <button v-else :class="classes">
     <slot />
   </button>
 </template>
 
 <style scoped>
 .btn {
+  display: inline-block;
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
+  text-align: center;
   padding: var(--space-4) var(--space-8);
   border: none;
   transition:

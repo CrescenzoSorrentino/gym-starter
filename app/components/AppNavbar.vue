@@ -1,17 +1,17 @@
 <script setup lang="ts">
-const isOpen = ref(false);
-
-const links = useNavLinks();
+const isOpen = ref(false)
+const links = useNavLinks()
+const siteName = useRuntimeConfig().public.siteName
 
 watch(isOpen, (value) => {
-  document.body.style.overflow = value ? "hidden" : "";
-});
+  document.body.style.overflow = value ? 'hidden' : ''
+})
 </script>
 
 <template>
   <header>
     <nav>
-      <NuxtLink to="/">{{ useRuntimeConfig().public.siteName }}</NuxtLink>
+      <NuxtLink to="/">{{ siteName }}</NuxtLink>
       <ul class="nav-links">
         <li v-for="link in links" :key="link.to">
           <NuxtLink :to="link.to"> {{ link.label }} </NuxtLink>
